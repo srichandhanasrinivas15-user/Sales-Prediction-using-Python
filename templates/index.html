@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            width: 380px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #1f3c88;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #162d68;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #16803c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h1>Sales Prediction</h1>
+
+        <form method="POST">
+
+            <label>TV Advertising Spend</label>
+            <input
+                type="number"
+                step="any"
+                name="tv"
+                placeholder="Enter TV advertising amount"
+                required
+            >
+
+            <label>Radio Advertising Spend</label>
+            <input
+                type="number"
+                step="any"
+                name="radio"
+                placeholder="Enter Radio advertising amount"
+                required
+            >
+
+            <label>Newspaper Advertising Spend</label>
+            <input
+                type="number"
+                step="any"
+                name="newspaper"
+                placeholder="Enter Newspaper advertising amount"
+                required
+            >
+
+            <button type="submit">Predict Sales</button>
+
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                Predicted Sales: {{ prediction }}
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
